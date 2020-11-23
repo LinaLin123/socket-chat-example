@@ -3,7 +3,7 @@ var http = require("http").createServer(app);
 var io = require("socket.io")(http);
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(__dirname + "https://infallible-ride-14a9d9.netlify.app/?");
 });
 
 io.on("connection", (socket) => {
