@@ -3,7 +3,7 @@ var http = require("http").createServer(app);
 var io = require("socket.io")(http);
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "https://murmuring-sands-97337.herokuapp.com/");
+  res.sendFile(__dirname + "/index.js");
 });
 
 io.on("connection", (socket) => {

@@ -44,7 +44,6 @@
     </style>
   </head>
   <body>
-
     <h1>Chat</h1>
     <ul id="messages"></ul>
     <form action="">
@@ -55,7 +54,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
       $(function () {
-        var socket = io();
+        var socket = io("https://murmuring-sands-97337.herokuapp.com/");
         $("form").submit(function (e) {
           e.preventDefault(); // prevents page reloading
           socket.emit("chat message", $("#m").val());
