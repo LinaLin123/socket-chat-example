@@ -3,7 +3,7 @@ var http = require("http").createServer(app);
 var io = require("socket.io")(http);
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.js");
+  res.sendFile(__dirname + "/index.html");
 });
 
 io.on("connection", (socket) => {
@@ -27,6 +27,7 @@ io.on("connection", (socket) => {
   });
 });
 
-http.listen(process.env.PORT || 3000, function () {
-  console.log("listening on *:", port);
+http.listen(3001, () => {
+  console.log("listening on *:3001");
 });
+
