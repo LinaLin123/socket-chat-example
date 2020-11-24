@@ -62,7 +62,7 @@
 
     <script>
       $(function () {
-        var socket = io();
+        const socket = io('https://murmuring-sands-97337.herokuapp.com/');
         $("form").submit(function (e) {
           e.preventDefault(); // prevents page reloading
           socket.emit("chat message", $("#m").val());
