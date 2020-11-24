@@ -1,10 +1,13 @@
-var app = require("express")();
+const express = require('express');
+const app = express();
+const path = require('path');
 var http = require("http").createServer(app);
-var io = require("socket.io")(http);
+var io = require("socket.io")(server);
+const port = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
+
+app.use(express.static(path.join(__dirname+ "/index.html")));
+
 
 io.on("connection", (socket) => {
   socket.on("chat message", (msg) => {
@@ -29,4 +32,6 @@ io.on("connection", (socket) => {
 
 
 
-io.listen(process.env.PORT || 3000);
+server.listen(port, () => {
+  console.log('Server listening at port %d', port);
+});
